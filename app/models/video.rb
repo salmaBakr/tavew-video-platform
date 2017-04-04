@@ -1,4 +1,6 @@
 class Video < ApplicationRecord
+  belongs_to :user
+  
   has_attached_file :file, :styles => {
     :mp4 => {
       :format => 'mp4',

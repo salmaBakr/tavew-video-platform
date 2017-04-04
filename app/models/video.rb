@@ -1,10 +1,10 @@
 class Video < ApplicationRecord
   belongs_to :user
-  
+
   has_attached_file :file, :styles => {
     :mp4 => {
       :format => 'mp4',
-      :geometry => "1200x675#",
+      :geometry => "1200x700#",
       :convert_options => {
         :input => {},
         :output => {
@@ -16,7 +16,7 @@ class Video < ApplicationRecord
     },
     :webm => {
       :format => 'webm',
-      :geometry => "1200x675#",
+      :geometry => "1200x700#",
       :convert_options => {
         :input => {},
         :output => {
@@ -33,7 +33,7 @@ class Video < ApplicationRecord
 
     :preview => {
       :format => :jpg,
-      :geometry => "1200x675#",
+      :geometry => "1200x700#",
       :convert_options => {
         :output => {
           :vframes => 1,

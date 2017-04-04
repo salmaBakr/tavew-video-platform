@@ -28,6 +28,7 @@ gem 'pry'
 gem 'paperclip'
 gem 'paperclip-av-transcoder'
 gem 'delayed_paperclip'
+gem 'active_model_serializers'
 
 
 group :development, :test do

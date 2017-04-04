@@ -8,4 +8,6 @@ class UsersController < ApplicationController
     user = User.find_by(id: params[:id])
     render json: user
   end
+
+  
 end

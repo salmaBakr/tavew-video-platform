@@ -25,6 +25,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 gem 'foreman', '~> 0.82.0'
 gem 'pry'
+gem 'paperclip'
+gem 'paperclip-av-transcoder'
+gem 'delayed_paperclip'
 
 
 group :development, :test do

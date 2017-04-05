@@ -10,7 +10,7 @@ export default class UsersPage extends Component {
   }
 
   componentDidMount(){
-    fetch('/api/users/1/')
+    fetch('/api/users/1')
       .then(response =>response.json())
       .then(data => this.setState({
         videos: data.videos
@@ -22,9 +22,9 @@ export default class UsersPage extends Component {
 
     const videos = this.state.videos.map( (video) =>
         
-        <div key={video.id}>
-          <h1>{video.title}</h1>
-          <video width="320" height="240" controls>
+        <div key={video.id} className="vidContainer">
+          <h2>{video.title}</h2>
+          <video width="360" height="240" controls>
             <source src={video.url} type={video.type}/>
           </video>
           <p>{video.description}</p>
@@ -32,8 +32,13 @@ export default class UsersPage extends Component {
   
       )
 
-    return (
-      <div>{videos}</div>
+    return (      
+      <div>
+      
+      <h1>My Videos</h1>
+      {videos}
+      
+      </div>
       )
   }
 }

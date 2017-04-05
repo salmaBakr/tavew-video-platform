@@ -1,14 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router';
-import logo from '../logo.svg';
+import React, { Component } from 'react'
+import{ Link } from 'react-router'
 
-  export default () => {
-  return (
-    <div className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h2>Welcome to React</h2>
-    </div>
-  )
+import '../NavBar.css'
+
+export default (props) => {
+
+    return (
+      <div className='navbar'>
+        <ul>
+          <li><Link to="/Home"> Home </Link></li>
+          <li><Link to="/VideosNew"> Upload </Link></li>
+        </ul>
+      </div>
+      )
 }
-
 

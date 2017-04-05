@@ -8,4 +8,18 @@ class Api::VideosController < ApplicationController
     video = Video.find_by(id: params[:id])
     render json: video
   end
+
+  def create 
+    video = Video.new(video_params)
+    if video.save
+      render json: { success: 'ok'}
+    else 
+      render json: { message: 'error'}, status: 412
+    end
+  end
+
+  private 
+    def video_params
+      params.require(:video).permit(:file, :title, :description, :user_id)
+    end
 end

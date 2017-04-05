@@ -38,8 +38,8 @@ export default class UsersPage extends Component {
       
       <h1>My Videos</h1>
       <Link to="/users/1/videos/new">Upload New Video</Link>
-      {this.props.children}
-      {videos}
+      {this.props.children || videos}
+    
 
       
       </div>

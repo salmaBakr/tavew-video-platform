@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import '../index.css'
 
 export default class UsersPage extends Component {
   constructor(props){
@@ -36,10 +37,10 @@ export default class UsersPage extends Component {
     return (      
       <div>
       
-      <h1>My Videos</h1>
+      
       <Link to="/users/1/videos/new">Upload New Video</Link>
       {this.props.children || videos}
-    
+      
 
       
       </div>

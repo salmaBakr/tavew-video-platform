@@ -31,7 +31,6 @@ export default class UsersPage extends Component {
               <source src={video.url} type={video.type}/>
             </video>
           </Link>
-          <p>{video.description}</p>
         </div>
   
       )

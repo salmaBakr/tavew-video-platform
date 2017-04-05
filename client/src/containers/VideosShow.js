@@ -29,11 +29,11 @@ export default class VideosShow extends Component {
         <div key={this.state.video.id} className="vidShowContainer">
           <div>
             <h2>{this.state.video.title}</h2>
-            <video width="720" height="480" controls className="video">
+            <video className="video" width="720" height="480" controls autoPlay >
               <source src={this.state.video.url} type={this.state.video.type}/>
             </video>
             <p>{this.state.video.description}</p>
-          q</div>
+          </div>
         </div>
   
       

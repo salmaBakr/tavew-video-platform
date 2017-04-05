@@ -25,11 +25,12 @@ export default class UsersPage extends Component {
     const videos = this.state.videos.map( (video) =>
         
         <div key={video.id} className="vidContainer">
-          <a href="#close" title="Close" class="close">X</a>
           <h2>{video.title}</h2>
-          <video width="360" height="240" controls>
-            <source src={video.url} type={video.type}/>
-          </video>
+          <Link to="/users/1/videos/2">
+            <video width="360" height="240" className="thumbVid">
+              <source src={video.url} type={video.type}/>
+            </video>
+          </Link>
           <p>{video.description}</p>
         </div>
   

@@ -49,7 +49,7 @@ export default class VideosNew extends Component {
       body: data
     })
       .then(response => response.json)
-      .then(data => console.log(data))
+      .then(data => this.props.router.push('/users/1'))
   }
 
   render() {

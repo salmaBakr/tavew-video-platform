@@ -9,9 +9,14 @@ export default class UsersPage extends Component {
     this.state = {
       videos: []
     }
+    this.fetchVideos.bind(this)
   }
 
   componentDidMount(){
+    this.fetchVideos()
+  }
+
+  fetchVideos() {
     fetch('/api/users/1')
       .then(response =>response.json())
       .then(data => this.setState({
@@ -21,6 +26,10 @@ export default class UsersPage extends Component {
   }
 
   render() {
+    const childrenWithProps = React.Children.map(this.props.children, (child) =>
+      React.cloneElement(child,{
+        fetchVideos: this.fetchVideos
+      }))
 
     const videos = this.state.videos.map( (video) =>
         
@@ -40,7 +49,7 @@ export default class UsersPage extends Component {
       
       
       <Link to="/users/1/videos/new">Upload New Video</Link>
-      {this.props.children || videos}
+      {childrenWithProps || videos}
       
 
       

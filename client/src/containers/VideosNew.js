@@ -49,7 +49,10 @@ export default class VideosNew extends Component {
       body: data
     })
       .then(response => response.json)
-      .then(data => this.props.router.push('/users/1'))
+      .then(data => {
+        this.props.fetchVideos()
+        this.props.router.push('/users/1')
+      })
   }
 
   render() {
@@ -88,7 +91,4 @@ export default class VideosNew extends Component {
   }
 }
 
-    // fetch('/avatars', {
-    //   method: 'POST',
-    //   body: data
-    // })
+   

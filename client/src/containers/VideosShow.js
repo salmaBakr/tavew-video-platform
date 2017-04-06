@@ -12,7 +12,8 @@ export default class VideosShow extends Component {
   }
 
   componentDidMount(){
-    fetch('/api/videos/2')
+    const id = this.props.params.videoId
+    fetch('/api/videos/' + id)
       .then(response =>response.json())
       .then(data => this.setState({
         video: data

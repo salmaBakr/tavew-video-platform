@@ -8,9 +8,10 @@ import Home from './components/Home'
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute path="/videos" component={VideosPage}> 
+    <IndexRoute component={VideosPage}/>
+    <Route path="/videos" component={VideosPage}> 
       <Route path="/videos/new" component={VideosNew}/> 
       <Route path="/videos/:videoId" component={VideosShow}/> 
-    </IndexRoute>
+    </Route>
   </Route>
   )

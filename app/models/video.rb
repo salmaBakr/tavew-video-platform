@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
-  belongs_to :user
+  #user model is pending
+  # belongs_to :user
 
   has_attached_file :file, :styles => {
     :mp4 => {

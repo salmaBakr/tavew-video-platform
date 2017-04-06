@@ -1,59 +1,61 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
-import '../index.css'
+// UsersPage is pending
 
-export default class UsersPage extends Component {
-  constructor(props){
-    super(props)
+// import React, { Component } from 'react'
+// import { Link } from 'react-router'
+// import '../index.css'
 
-    this.state = {
-      videos: []
-    }
-    this.fetchVideos.bind(this)
-  }
+// export default class UsersPage extends Component {
+//   constructor(props){
+//     super(props)
 
-  componentDidMount(){
-    this.fetchVideos()
-  }
+//     this.state = {
+//       videos: []
+//     }
+//     this.fetchVideos.bind(this)
+//   }
 
-  fetchVideos() {
-    fetch('/api/users/1')
-      .then(response =>response.json())
-      .then(data => this.setState({
-        videos: data.videos
-      })
-      )
-  }
+//   componentDidMount(){
+//     this.fetchVideos()
+//   }
 
-  render() {
-    const childrenWithProps = React.Children.map(this.props.children, (child) =>
-      React.cloneElement(child,{
-        fetchVideos: this.fetchVideos
-      }))
+//   fetchVideos() {
+//     fetch('/api/users/1')
+//       .then(response =>response.json())
+//       .then(data => this.setState({
+//         videos: data.videos
+//       })
+//       )
+//   }
 
-    const videos = this.state.videos.map( (video) =>
+//   render() {
+//     const childrenWithProps = React.Children.map(this.props.children, (child) =>
+//       React.cloneElement(child,{
+//         fetchVideos: this.fetchVideos
+//       }))
+
+//     const videos = this.state.videos.map( (video) =>
         
-        <div key={video.id} className="vidContainer">
-          <h2>{video.title}</h2>
-          <Link to="/users/1/videos/2">
-            <video width="360" height="240" className="thumbVid">
-              <source src={video.url} type={video.type}/>
-            </video>
-          </Link>
-        </div>
+//         <div key={video.id} className="vidContainer">
+//           <h2>{video.title}</h2>
+//           <Link to="/users/1/videos/2">
+//             <video width="360" height="240" className="thumbVid">
+//               <source src={video.url} type={video.type}/>
+//             </video>
+//           </Link>
+//         </div>
   
-      )
+//       )
 
-    return (      
-      <div>
+//     return (      
+//       <div>
       
       
-      <Link to="/users/1/videos/new">Upload New Video</Link>
-      {childrenWithProps || videos}
+//       <Link to="/users/1/videos/new">Upload New Video</Link>
+//       {childrenWithProps || videos}
       
 
       
-      </div>
-      )
-  }
-}
+//       </div>
+//       )
+//   }
+// }

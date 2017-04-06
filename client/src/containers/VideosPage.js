@@ -35,7 +35,7 @@ export default class VideosPage extends Component {
         
         <div key={video.id} className="vidContainer">
           <h2>{video.title}</h2>
-          <Link to="/videos/2">
+          <Link to={"/videos/" + video.id}>
             <video width="360" height="240" className="thumbVid">
               <source src={video.url} type={video.type}/>
             </video>

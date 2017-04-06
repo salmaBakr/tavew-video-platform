@@ -9,9 +9,9 @@ import Home from './components/Home'
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
-    <Route path="/users/:id" component={VideosPage}> 
-      <Route path="/users/:id/videos/new" component={VideosNew}/> 
-      <Route path="/users/:id/videos/:videoId" component={VideosShow}/> 
+    <Route path="/videos" component={VideosPage}> 
+      <Route path="/videos/new" component={VideosNew}/> 
+      <Route path="/videos/:videoId" component={VideosShow}/> 
     </Route>
   </Route>
   )

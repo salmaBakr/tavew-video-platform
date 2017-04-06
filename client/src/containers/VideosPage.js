@@ -20,7 +20,7 @@ export default class VideosPage extends Component {
     fetch('/api/videos')
       .then(response =>response.json())
       .then(data => this.setState({
-        videos: data.videos
+        videos: data
       })
       )
   }

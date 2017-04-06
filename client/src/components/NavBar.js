@@ -9,8 +9,7 @@ export default (props) => {
       <div className='navbar'>
         <ul>
           <li><Link to="/"> Home </Link></li>
-          <li><Link to="/users/1"> Profile </Link></li>
-          <li><Link to="/users/1/videos/new"> Upload </Link></li>
+          <li><Link to="/videos/new"> Upload </Link></li>
         </ul>
       </div>
       )

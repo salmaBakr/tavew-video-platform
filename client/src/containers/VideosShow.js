@@ -12,7 +12,7 @@ export default class VideosShow extends Component {
   }
 
   componentDidMount(){
-    fetch('/api/users/1/videos/2')
+    fetch('/api/videos/2')
       .then(response =>response.json())
       .then(data => this.setState({
         video: data

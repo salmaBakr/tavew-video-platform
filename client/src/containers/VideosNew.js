@@ -44,14 +44,14 @@ export default class VideosNew extends Component {
     data.append('video[file]', this.state.file)
     data.append('video[user_id]', this.state.user_id)
 
-    fetch('/api/users/1/videos', {
+    fetch('/api/videos', {
       method: 'POST',
       body: data
     })
       .then(response => response.json)
       .then(data => {
         this.props.fetchVideos()
-        this.props.router.push('/users/1')
+        this.props.router.push('/videos')
       })
   }
 

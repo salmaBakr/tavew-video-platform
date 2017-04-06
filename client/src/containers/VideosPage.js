@@ -48,7 +48,7 @@ export default class VideosPage extends Component {
       <div>
       
       
-      <Link to="/users/1/videos/new">Upload New Video</Link>
+      <Link to="/videos/new">Upload New Video</Link>
       {childrenWithProps || videos}
       
 

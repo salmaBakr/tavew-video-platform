@@ -36,12 +36,12 @@ export default class VideosPage extends Component {
           const videos = this.state.videos.map( (video) =>
 
               <div key={video.id} className="thumbVid">
-                <h2>{video.title}</h2>
                 <Link to={"/videos/" + video.id}>
                   <video width="360" height="240" >
                     <source src={video.url} type={video.type}/>
                   </video>
                 </Link>
+                <p className='vidTitle'>{video.title}</p>
                </div>  
       )
                

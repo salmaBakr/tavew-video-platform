@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/videos.js'
 
-export default class VideosNew extends Component {
+class VideosNew extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      user_id: 1
+    
     }
 
   }
+   
 
   handleInputChange(event) {
     const { value, name } = event.target
@@ -43,16 +47,20 @@ export default class VideosNew extends Component {
     data.append('video[description]', this.state.description)
     data.append('video[file]', this.state.file)
     data.append('video[user_id]', this.state.user_id)
-
-    fetch('/api/videos', {
-      method: 'POST',
-      body: data
+    this.props.actions.addVideo(data).then(() => {
+      this.props.router.push('/videos')
     })
-      .then(response => response.json)
-      .then(data => {
-        this.props.postVideo()
-        this.props.router.push('/videos')
-      })
+
+    // this.props.router.push('/videos')
+    // fetch('/api/videos', {
+    //   method: 'POST',
+    //   body: data
+    // })
+    //   .then(response => response.json)
+    //   .then(data => {
+      
+    //     this.props.router.push('/videos')
+    //   })
   }
 
   render() {
@@ -97,4 +105,10 @@ export default class VideosNew extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+    console.log('in dispatch state to props')
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(null, mapDispatchToProps )(VideosNew)
    

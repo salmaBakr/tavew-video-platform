@@ -18,6 +18,16 @@ export function fetchVideo(id) {
 
 
 
-
+export function addVideo(formData) {
+  return function(dispatch) {
+    return fetch('/api/videos', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json)
+      .then(data => { dispatch({type: 'ADD_VIDEO'})
+      })
+  }
+}
 
 // { return res.json()}

@@ -10,10 +10,8 @@ import VideosShow from './containers/VideosShow'
 export default (
     <Route path="/" component={App}>
       <IndexRoute component={VideosPage}/>
-      <Route path="/videos" component={VideosPage}> 
-        <Route path="/videos/new" component={VideosNew}/> 
-        
-      </Route>
+      <Route path="/videos" component={VideosPage}/> 
+      <Route path="/videos/new" component={VideosNew}/> 
       <Route path="/videos/:videoId" component={VideosShow}/> 
     </Route>
   )

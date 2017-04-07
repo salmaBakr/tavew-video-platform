@@ -1,39 +1,40 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 import '../index.css'
+import * as actions from '../actions/videos.js'
 
-export default class VideosShow extends Component {
-  constructor(props){
-    super(props)
-
-    this.state = {
-      video: []
-    }
-  }
+ class VideosShow extends Component {
 
   componentDidMount(){
+    console.log('in componentDidMount')
     const id = this.props.params.videoId
-    fetch('/api/videos/' + id)
-      .then(response =>response.json())
-      .then(data => this.setState({
-        video: data
-      }))
-  }
+    this.props.actions.fetchVideo(id)
+    console.log(this.props.video)
+  //   fetch('/api/videos/' + id)
+  //     .then(response =>response.json())
+  //     .then(data => this.setState({
+  //       video: data
+  //     }))
+    }
 
-  render() {
+  render() { 
+    // debugger
+   //    console.log('in render')
+   // return <div></div>
+  
+  
 
-
-    
     return (      
       <div>
       
-        <div key={this.state.video.id} className="vidShowContainer">
+        <div key={this.props.video.id} className="vidShowContainer">
           <div>
-            <h2>{this.state.video.title}</h2>
+            <h2>{this.props.video.title}</h2>
             <video className="video" width="720" height="480" controls autoPlay >
-              <source src={this.state.video.url} type={this.state.video.type}/>
+              <source src={this.props.video.url} type={this.props.video.type}/>
             </video>
-            <p>{this.state.video.description}</p>
+            <p>{this.props.video.description}</p>
           </div>
         </div>
   
@@ -41,6 +42,21 @@ export default class VideosShow extends Component {
 
       
       </div>
-      )
+    )
   }
 }
+
+function mapStateToProps(state) {
+  console.log('in map state to props')
+  return {video: state.videos}
+
+
+}
+
+function mapDispatchToProps(dispatch) {
+
+    console.log('in dispatch state to props')
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(VideosShow)

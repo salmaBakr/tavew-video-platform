@@ -11,7 +11,7 @@ export default class VideosNew extends Component {
   }
 
   handleInputChange(event) {
-    const { value, type, name } = event.target
+    const { value, name } = event.target
     
 
     const input = document.querySelector('input[type="file"]')

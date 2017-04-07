@@ -1,11 +1,23 @@
 export function fetchVideos() {
   return function(dispatch) {
-    dispatch({ type: 'LOADING_CATS'})
-    return fetch('http://localhost:3000/db')
+    return fetch('/api/videos')
       .then(res => { return res.json()})
-      .then(responseJson => {dispatch({type: 'FETCH_CATS', payload: responseJson.images})
+      .then(videos => {dispatch({type: 'FETCH_VIDEOS', videos})
+    })
+  };
+};
+
+export function fetchVideo(id) {
+  return function(dispatch) {
+    return fetch('/api/videos/'+id)
+      .then(res => { return res.json()})
+      .then(video => {dispatch({type: 'FETCH_VIDEO', video})
     })
   };
 };
 
 
+
+
+
+// { return res.json()}

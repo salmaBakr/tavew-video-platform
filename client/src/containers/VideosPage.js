@@ -12,20 +12,13 @@ import * as actions from '../actions/videos.js'
     this.props.actions.fetchVideos()
   }
 
-  // fetchVideos() {
-  //   fetch('/api/videos')
-  //     .then(response =>response.json())
-  //     .then(data => this.setState({
-  //       videos: data
-  //     })
-  //     )
-  // }
+
 
   render() {
     
     // const childrenWithProps = React.Children.map(this.props.children, (child) =>
     //   React.cloneElement(child,{
-    //     fetchVideos: this.fetchVideos.bind(this)
+    //     videos: this.props.videos
     //   }))
 
 

@@ -10,14 +10,14 @@ export default class VideosPage extends Component {
     this.state = {
       videos: []
     }
-    this.fetchVideos.bind(this)
+    this.postVideo.bind(this)
   }
 
   componentDidMount(){
-    this.fetchVideos()
+    this.postVideo()
   }
 
-  fetchVideos() {
+  postVideo() {
     fetch('/api/videos')
       .then(response =>response.json())
       .then(data => this.setState({
@@ -29,7 +29,7 @@ export default class VideosPage extends Component {
   render() {
     const childrenWithProps = React.Children.map(this.props.children, (child) =>
       React.cloneElement(child,{
-        fetchVideos: this.fetchVideos.bind(this)
+        postVideo: this.postVideo.bind(this)
       }))
 
 

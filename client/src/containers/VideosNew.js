@@ -50,7 +50,7 @@ export default class VideosNew extends Component {
     })
       .then(response => response.json)
       .then(data => {
-        this.props.fetchVideos()
+        this.props.postVideo()
         this.props.router.push('/videos')
       })
   }

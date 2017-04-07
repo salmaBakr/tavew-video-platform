@@ -58,18 +58,22 @@ export default class VideosNew extends Component {
   render() {
     console.log(this.state)
     return (
-      <form className = "form" id="form" onSubmit={(event) => this.handleOnClick(event)}>
+      <div className='form'>
+      <form id="form" onSubmit={(event) => this.handleOnClick(event)}>
         <div className='input-group'>
           <input className='add-video-field'
           type="text" 
-          name="title"  
+          name="title"
+          placeholder='title'  
           onChange={(event) => this.handleInputChange(event)}/>
         </div>
 
         <div className='input-group'>
           <input className='add-video-field'
           type="text" 
-          name="description" 
+          name="description"
+          placeholder='description' 
+          size='70'
           onChange={(event) => this.handleInputChange(event)}/>
         </div>
                 
@@ -87,6 +91,7 @@ export default class VideosNew extends Component {
           />
         </div>
       </form>
+      </div>
       )
   }
 }

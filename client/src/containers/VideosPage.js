@@ -1,39 +1,35 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
 import '../index.css'
+import * as actions from '../actions/videos.js'
 
+ class VideosPage extends Component {
 
-export default class VideosPage extends Component {
-  constructor(props){
-    super(props)
-
-    this.state = {
-      videos: []
-    }
-    this.fetchVideos.bind(this)
-  }
 
   componentDidMount(){
-    this.fetchVideos()
+    this.props.actions.fetchVideos()
   }
 
-  fetchVideos() {
-    fetch('/api/videos')
-      .then(response =>response.json())
-      .then(data => this.setState({
-        videos: data
-      })
-      )
-  }
+  // fetchVideos() {
+  //   fetch('/api/videos')
+  //     .then(response =>response.json())
+  //     .then(data => this.setState({
+  //       videos: data
+  //     })
+  //     )
+  // }
 
   render() {
-    const childrenWithProps = React.Children.map(this.props.children, (child) =>
-      React.cloneElement(child,{
-        fetchVideos: this.fetchVideos.bind(this)
-      }))
+    
+    // const childrenWithProps = React.Children.map(this.props.children, (child) =>
+    //   React.cloneElement(child,{
+    //     fetchVideos: this.fetchVideos.bind(this)
+    //   }))
 
 
-          const videos = this.state.videos.map( (video) =>
+          const videos = this.props.videos.map( (video) =>
 
               <div key={video.id} className="thumbVid">
                 <Link to={"/videos/" + video.id}>
@@ -48,9 +44,20 @@ export default class VideosPage extends Component {
 
     return (      
       <div className='wrap'>
-        {childrenWithProps || <div className="vidContainer"> {videos} </div> }     
+        {this.props.children || <div className="vidContainer">{videos} </div> }     
       </div>  
       
       )
   }
 }
+
+function mapStateToProps(state) {
+  console.log('in map state to props')
+  return {videos: state.videos}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideosPage)

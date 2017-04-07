@@ -11,5 +11,23 @@ body {
 }
 
 .thumbVid:hover {
-  opacity: 0.7;
+  opacity: 0.7; 
+
+}
+
+.thumbVid {
+  margin: 4px;
+  
+}
+
+.vidContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wrap {
+   overflow: hidden;
+   margin: 1px;
 }

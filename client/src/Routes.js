@@ -11,7 +11,8 @@ export default (
     <IndexRoute component={VideosPage}/>
     <Route path="/videos" component={VideosPage}> 
       <Route path="/videos/new" component={VideosNew}/> 
-      <Route path="/videos/:videoId" component={VideosShow}/> 
+      <Route path="/videos/:videoId" component={VideosShow} modal={true}/> 
     </Route>
   </Route>
   )
+

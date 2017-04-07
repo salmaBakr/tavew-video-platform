@@ -81,6 +81,7 @@ export default class VideosNew extends Component {
           <input className='add-video-field'
           type="file" 
           name="file" 
+          accept="video/mp4,video/x-m4v,video/*"
           onChange={(event) => this.handleOnAttach(event)}/>
         </div>
 

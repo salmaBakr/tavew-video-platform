@@ -5,14 +5,17 @@ import VideosPage from './containers/VideosPage'
 import VideosNew from './containers/VideosNew'
 import VideosShow from './containers/VideosShow'
 import Home from './components/Home'
+import { Provider } from 'react-redux'; 
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={VideosPage}/>
-    <Route path="/videos" component={VideosPage}> 
-      <Route path="/videos/new" component={VideosNew}/> 
-      <Route path="/videos/:videoId" component={VideosShow} modal={true}/> 
+  <Provider store={store}>
+    <Route path="/" component={App}>
+      <IndexRoute component={VideosPage}/>
+      <Route path="/videos" component={VideosPage}> 
+        <Route path="/videos/new" component={VideosNew}/> 
+        <Route path="/videos/:videoId" component={VideosShow} modal={true}/> 
+      </Route>
     </Route>
-  </Route>
+  </Provider>
   )
 

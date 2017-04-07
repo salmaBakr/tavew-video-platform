@@ -1,17 +1,27 @@
 import React, { Component } from 'react'
 import{ Link } from 'react-router'
-
-import '../NavBar.css'
+import {Navbar, Nav, NavItem} from 'react-bootstrap'
+// import '../NavBar.css'
 
 export default (props) => {
 
     return (
-      <div className='navbar'>
-        <ul>
-          <li><Link to="/"> Home </Link></li>
-          <li><Link to="/videos/new"> Upload </Link></li>
-        </ul>
-      </div>
-      )
+
+<Navbar>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="#">TAVEW</a>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav>
+        <NavItem eventKey={1} href="/">Home</NavItem>
+        <NavItem eventKey={2} href="/videos/new">Upload</NavItem>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+  )
 }
+
 

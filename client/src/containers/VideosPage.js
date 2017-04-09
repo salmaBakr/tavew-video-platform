@@ -12,26 +12,17 @@ import * as actions from '../actions/videos.js'
     this.props.actions.fetchVideos()
   }
 
-
-
   render() {
-    
-    // const childrenWithProps = React.Children.map(this.props.children, (child) =>
-    //   React.cloneElement(child,{
-    //     videos: this.props.videos
-    //   }))
+    const videos = this.props.videos.map( (video) =>
 
-
-          const videos = this.props.videos.map( (video) =>
-
-              <div key={video.id} className="thumbVid">
-                <Link to={"/videos/" + video.id}>
-                  <video width="360" height="240" >
-                    <source src={video.url} type={video.type}/>
-                  </video>
-                </Link>
-                <p className='vidTitle'>{video.title}</p>
-               </div>  
+        <div key={video.id} className="thumbVid">
+          <Link to={"/videos/" + video.id}>
+            <video width="360" height="240" >
+              <source src={video.url} type={video.type}/>
+            </video>
+          </Link>
+          <p className='vidTitle'>{video.title}</p>
+         </div>  
       )
                
 
@@ -39,7 +30,6 @@ import * as actions from '../actions/videos.js'
       <div className='wrap'>
         {this.props.children || <div className="vidContainer">{videos} </div> }     
       </div>  
-      
       )
   }
 }

@@ -6,34 +6,24 @@ import * as actions from '../actions/videos.js'
 class VideosNew extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
     
     }
-
   }
    
 
   handleInputChange(event) {
     const { value, name } = event.target
-    
-
     const input = document.querySelector('input[type="file"]')
-
     const data = new FormData()
     data.append('file', input.files[0])
-
     this.setState({
       [name]: value,
     })
   }
 
-  handleOnAttach(event) {
-    
+  handleOnAttach(event) { 
     const input = document.querySelector('input[type="file"]')
-
-
-
     this.setState({
       file: input.files[0],
     })
@@ -42,25 +32,16 @@ class VideosNew extends Component {
   handleOnClick(event) {
     event.preventDefault()
     const data = new FormData()
-    
     data.append('video[title]', this.state.title)
     data.append('video[description]', this.state.description)
     data.append('video[file]', this.state.file)
     data.append('video[user_id]', this.state.user_id)
+
     this.props.actions.addVideo(data).then(() => {
       this.props.router.push('/videos')
     })
 
-    // this.props.router.push('/videos')
-    // fetch('/api/videos', {
-    //   method: 'POST',
-    //   body: data
-    // })
-    //   .then(response => response.json)
-    //   .then(data => {
-      
-    //     this.props.router.push('/videos')
-    //   })
+
   }
 
   render() {

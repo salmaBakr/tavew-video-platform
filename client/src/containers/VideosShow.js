@@ -7,27 +7,13 @@ import * as actions from '../actions/videos.js'
  class VideosShow extends Component {
 
   componentDidMount(){
-    console.log('in componentDidMount')
     const id = this.props.params.videoId
     this.props.actions.fetchVideo(id)
-    console.log(this.props.video)
-  //   fetch('/api/videos/' + id)
-  //     .then(response =>response.json())
-  //     .then(data => this.setState({
-  //       video: data
-  //     }))
-    }
+   }
 
   render() { 
-    // debugger
-   //    console.log('in render')
-   // return <div></div>
-  
-  
-
     return (      
       <div>
-      
         <div key={this.props.video.id} className="vidShowContainer">
           <div>
             <h2>{this.props.video.title}</h2>
@@ -37,10 +23,6 @@ import * as actions from '../actions/videos.js'
             <p>{this.props.video.description}</p>
           </div>
         </div>
-  
-      
-
-      
       </div>
     )
   }
@@ -49,12 +31,9 @@ import * as actions from '../actions/videos.js'
 function mapStateToProps(state) {
   console.log('in map state to props')
   return {video: state.videos}
-
-
 }
 
 function mapDispatchToProps(dispatch) {
-
     console.log('in dispatch state to props')
   return {actions: bindActionCreators(actions, dispatch)}
 }

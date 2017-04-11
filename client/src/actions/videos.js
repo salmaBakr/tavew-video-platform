@@ -25,9 +25,14 @@ export function addVideo(formData) {
       body: formData
     })
       .then(response => response.json)
-      .then(data => { dispatch({type: 'ADD_VIDEO'})
+      .then(video => { dispatch({type: 'ADD_VIDEO'}, video)
       })
   }
 }
 
-// { return res.json()}
+export function increaseLikes(id){
+  return function(dispatch) {
+    dispatch({type: 'INCREASE_LIKES', id})
+  }
+}
+

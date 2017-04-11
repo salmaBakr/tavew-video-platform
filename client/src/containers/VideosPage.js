@@ -6,21 +6,32 @@ import '../index.css'
 import * as actions from '../actions/videos.js'
 
  class VideosPage extends Component {
+  constructor(props){
+    super(props)
 
+  }
+
+   handleOnLikeClick(event){
+    event.preventDefault()
+    const id = event.target.id
+    this.props.actions.increaseLikes(id)
+  }
 
   componentDidMount(){
     this.props.actions.fetchVideos()
   }
 
   render() {
-    const videos = this.props.videos.map( (video) =>
-
-        <div key={video.id} className="thumbVid">
+    const videos = this.props.videos.map( (video, i) =>
+     
+        <div key={i} className="thumbVid">
           <Link to={"/videos/" + video.id}>
             <video width="360" height="240" >
               <source src={video.url} type={video.type}/>
             </video>
           </Link>
+          <button className='like' id={video.id} onClick={(event) => this.handleOnLikeClick(event)}>Like</button>
+          {video.likes}
           <p className='vidTitle'>{video.title}</p>
          </div>  
       )
@@ -34,9 +45,8 @@ import * as actions from '../actions/videos.js'
   }
 }
 
-function mapStateToProps(state) {
-  console.log('in map state to props')
-  return {videos: state.videos}
+function mapStateToProps(state) { 
+  return {videos: state.videos }
 }
 
 function mapDispatchToProps(dispatch) {

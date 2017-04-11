@@ -25,14 +25,28 @@ export function addVideo(formData) {
       body: formData
     })
       .then(response => response.json)
-      .then(video => { dispatch({type: 'ADD_VIDEO'}, video)
+      .then(video => { dispatch({type: 'ADD_VIDEO', video})
       })
   }
 }
 
-export function increaseLikes(id){
+export function increaseLikes(vidInfo){
   return function(dispatch) {
-    dispatch({type: 'INCREASE_LIKES', id})
+    return fetch('/api/videos/' + String(vidInfo.id), {
+      method: 'PUT', 
+      headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify({'video[likes]': vidInfo.likes++})
+    })
+      .then(response => response.json)
+      .then(video => {dispatch({type: 'INCREASE_LIKES', vidInfo})
+    })
   }
 }
 
+// {dispatch({type: 'INCREASE_LIKES', video}
+
+ // { dispatch({type: 'ADD_VIDEO'}, video)
+ //      })

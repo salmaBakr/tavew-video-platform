@@ -57,8 +57,11 @@ class Video < ApplicationRecord
   },
   :processors => [:transcoder]
 
-validates_attachment_size :file, less_than: 1.gigabytes
-validates_attachment_content_type :file, :content_type => ["video/mp4", "video/quicktime", "video/x-flv", "video/x-msvideo", "video/x-ms-wmv", "video/webm"]
-validates_presence_of :title, :description, :file
-process_in_background :file
+  validates_attachment_size :file, less_than: 1.gigabytes
+  validates_attachment_content_type :file, :content_type => ["video/mp4", "video/quicktime", "video/x-flv", "video/x-msvideo", "video/x-ms-wmv", "video/webm"]
+  validates_presence_of :title, :description, :file
+  process_in_background :file
+
+
+
 end

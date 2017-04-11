@@ -4,16 +4,16 @@ export default (state = [], action) => {
   switch (action.type) {
 
     case 'FETCH_VIDEOS':
-      action.videos.forEach((video) => video.likes = 0)
+      // action.videos.forEach((video) => video.likes = 0)
       return action.videos;
     case 'INCREASE_LIKES':
-      const video = state.find( (video) => video.id == action.id)
+   
+      const video = state.find( (video) => video.id == action.vidInfo.id)
       video.likes++
       return update(state, { 
-        [action.id - 1]: {
+        [action.vidInfo.id - 1]: {
          likes: {$set: video.likes}
         }
-
       })
       
     case 'FETCH_VIDEO':

@@ -18,8 +18,18 @@ class Api::VideosController < ApplicationController
     end
   end
 
+  def update
+    video = Video.find_by(id: params[:id])
+    video.likes += 1
+    if video.save
+      render json: { success: 'ok'}
+    else 
+      render json: { message: 'error'}, status: 412
+    end
+  end
+
   private 
     def video_params
-      params.require(:video).permit(:file, :title, :description, :user_id)
+      params.require(:video).permit(:file, :title, :description, :user_id, :likes)
     end
 end

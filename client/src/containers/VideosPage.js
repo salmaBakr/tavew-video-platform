@@ -11,14 +11,19 @@ import * as actions from '../actions/videos.js'
 
   }
 
-   handleOnLikeClick(event){
+  handleOnLikeClick(event){
     event.preventDefault()
     const id = event.target.id
     const likes = event.target.value
     const vidInfo = {'id': id, 'likes': likes}
-    this.props.actions.increaseLikes(vidInfo)
-
+    if(event.target.className == 'like') {
+      this.props.actions.increaseLikes(vidInfo)
+    }
+    else{
+      this.props.actions.decreaseLikes(vidInfo)
+    }
   }
+
 
   componentDidMount(){
     this.props.actions.fetchVideos()
@@ -33,9 +38,14 @@ import * as actions from '../actions/videos.js'
               <source src={video.url} type={video.type}/>
             </video>
           </Link>
-          <button className='like' id={video.id} value={video.likes} onClick={(event) => this.handleOnLikeClick(event)}>Like</button>
-          {video.likes}
-          <p className='vidTitle'>{video.title}</p>
+           <p className='vidTitle'>{video.title}</p>
+          <div>
+            <button className='like' id={video.id} value={video.likes} onClick={(event) => this.handleOnLikeClick(event)}>Like</button>
+            <button className='dislike' id={video.id} value={video.likes} onClick={(event) => this.handleOnLikeClick(event)}>Dislike</button>
+            {video.likes}
+          </div>
+          <br/>
+         
          </div>  
       )
                

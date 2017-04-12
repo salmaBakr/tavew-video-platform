@@ -20,7 +20,7 @@ class Api::VideosController < ApplicationController
 
   def update
     video = Video.find_by(id: params[:id])
-    video.likes += 1
+    video.likes = params[:video][:likes]
     if video.save
       render json: { success: 'ok'}
     else 

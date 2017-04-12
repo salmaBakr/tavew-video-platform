@@ -38,15 +38,26 @@ export function increaseLikes(vidInfo){
     'Accept': 'application/json, text/plain, */*',
     'Content-Type': 'application/json'
       }, 
-      body: JSON.stringify({'video[likes]': vidInfo.likes++})
+      body: JSON.stringify({video: {likes: ++vidInfo.likes}})
     })
       .then(response => response.json)
       .then(video => {dispatch({type: 'INCREASE_LIKES', vidInfo})
     })
   }
 }
-
-// {dispatch({type: 'INCREASE_LIKES', video}
-
- // { dispatch({type: 'ADD_VIDEO'}, video)
- //      })
+  export function decreaseLikes(vidInfo){
+    return function(dispatch) {
+      return fetch('/api/videos/' + String(vidInfo.id), {
+        method: 'PUT', 
+        headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify({video: {likes: --vidInfo.likes}})
+      })
+        .then(response => response.json)
+        .then(video => {dispatch({type: 'DECREASE_LIKES', vidInfo})
+      })
+    }
+  }
+  

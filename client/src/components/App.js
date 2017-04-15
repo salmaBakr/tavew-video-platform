@@ -4,6 +4,14 @@ import '../App.css';
 
 export default class App extends Component {
   render() {
+    if(this.props.router.routes[1].path == '/videos/:videoId') {
+    return (
+      <div className='App'>
+        {this.props.children}
+      </div>
+
+      )
+  }else {
     return (
       <div className='App'>
         <NavBar/>
@@ -11,6 +19,7 @@ export default class App extends Component {
       </div>
 
       )
+  }
   }
 }
 

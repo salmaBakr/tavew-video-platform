@@ -13,17 +13,18 @@ import * as actions from '../actions/videos.js'
 
   render() { 
     return (      
-      <div>
+  
         <div key={this.props.video.id} className="vidShowContainer">
-          <div>
-            <h2>{this.props.video.title}</h2>
-            <video className="video" width="720" height="480" controls autoPlay >
+          <h2>{this.props.video.title}</h2>
+          <div id='wrap-video'>
+            <video className="video"  controls autoPlay >
               <source src={this.props.video.url} type={this.props.video.type}/>
+
             </video>
-            <p>{this.props.video.description}</p>
           </div>
+          <p>{this.props.video.description}</p>
         </div>
-      </div>
+  
     )
   }
 }

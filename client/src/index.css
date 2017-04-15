@@ -49,11 +49,11 @@ body {
   justify-content: center;
 }
 
-.vidShowContainer {
+/*.vidShowContainer {
   flex-wrap: wrap;
   justify-content: center;
   margin: 15px;
-}
+}*/
 
 .uploadLink {
   margin-top: 20px;

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
 import '../index.css'
 import * as actions from '../actions/videos.js'
+import { propTypes, defaultProps } from '../props'
 
  class VideosPage extends Component {
   constructor(props){

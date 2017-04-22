@@ -53,7 +53,7 @@ import * as actions from '../actions/videos.js'
         <div key={this.props.video.id} className="vidShowContainer" onMouseMove={() => this.handleMouseMove()}>
          
           <div id='wrap-video' >
-            <video className="video" autoPlay >
+            <video className="video" autoPlay controls >
               <source src={this.props.video.url} type={this.props.video.type}/>
             </video>
             <div className={overlayClass} >

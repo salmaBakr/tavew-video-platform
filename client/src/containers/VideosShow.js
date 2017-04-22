@@ -69,7 +69,7 @@ import { browserHistory } from 'react-router'
   }
 
   back() {
-    browserHistory.goBack()
+    browserHistory.push('/videos')
   }
   render() { 
     let overlayClass = 'vid-overlay'

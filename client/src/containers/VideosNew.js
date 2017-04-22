@@ -2,15 +2,21 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/videos.js'
+let timeout = null
 
 class VideosNew extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
-    
+      active: false 
     }
+
   }
-   
+
+  handleMouseMove(event) {
+    this.resetTimer()
+  }
 
   handleInputChange(event) {
     const { value, name } = event.target
@@ -40,11 +46,32 @@ class VideosNew extends Component {
 
 
   }
+  
+  startTimer() {
+     timeout = setTimeout(this.goInactive.bind(this), 5000)
+    }
+
+  goInactive() {
+    this.setState({
+      active: false
+    })
+  }
+
+  goActive() {
+    this.setState({
+      active: true,
+    })
+    this.startTimer()
+  }
+  resetTimer() {
+    clearTimeout(timeout);
+    this.goActive()
+  }
 
   render() {
     console.log(this.state)
     return (
-      <div className='form'>
+      <div className='form' onMouseMove={(event) => this.handleMouseMove(event) }>
       <form id="form" onSubmit={(event) => this.handleOnClick(event)}>
         <div className='input-group'>
           <input className='add-video-field'
@@ -83,6 +110,7 @@ class VideosNew extends Component {
   }
 }
 
+  
 function mapDispatchToProps(dispatch) {
     console.log('in dispatch state to props')
   return {actions: bindActionCreators(actions, dispatch)}

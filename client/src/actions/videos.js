@@ -16,8 +16,6 @@ export function fetchVideo(id) {
   };
 };
 
-
-
 export function addVideo(formData) {
   return function(dispatch) {
     return fetch('/api/videos', {
@@ -45,6 +43,7 @@ export function increaseLikes(vidInfo){
     })
   }
 }
+
   export function decreaseLikes(vidInfo){
     return function(dispatch) {
       return fetch('/api/videos/' + String(vidInfo.id), {
@@ -61,3 +60,4 @@ export function increaseLikes(vidInfo){
     }
   }
   
+

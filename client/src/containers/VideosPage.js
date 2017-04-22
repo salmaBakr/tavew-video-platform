@@ -31,7 +31,7 @@ import * as actions from '../actions/videos.js'
 
   render() {
     const videos = this.props.videos.map( (video, i) =>
-     
+      
         <div key={i} className="thumbVid">
           <Link to={"/videos/" + video.id}>
             <video width="360" height="240" >

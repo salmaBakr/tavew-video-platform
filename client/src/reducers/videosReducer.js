@@ -28,5 +28,5 @@ export default (state = [], action) => {
       return [ ...state, video ];
     default:
       return state;
-  }
+    };
 };

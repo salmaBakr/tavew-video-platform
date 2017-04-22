@@ -3,6 +3,11 @@ import NavBar from './NavBar'
 import '../App.css';
 
 export default class App extends Component {
+// componentWillReceiveProps(nextProps) {
+//     this.setState({
+//         children: nextProps.children
+//     });
+// }
   render() {
     if(this.props.router.routes[1].path == '/videos/:videoId') {
     return (

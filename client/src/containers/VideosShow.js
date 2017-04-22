@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import '../index.css'
 import * as actions from '../actions/videos.js'
 import { propTypes, defaultProps } from '../props'
+import { browserHistory } from 'react-router'
 
 
  let timeout = null
@@ -16,10 +17,17 @@ import { propTypes, defaultProps } from '../props'
     }
   }
 
+  static contextTypes = {
+    router: PropTypes.object
+  };
   componentDidMount(){
     const id = this.props.params.videoId
     this.props.actions.fetchVideo(id)
    }
+  componentWillUnmount(){
+    clearTimeout(timeout);
+    this.context.router.go(this.context.router.getCurrentLocation())
+  }
 
   handleMouseMove() {
     this.resetTimer()
@@ -59,6 +67,10 @@ import { propTypes, defaultProps } from '../props'
     video.play()
     }
   }
+
+  back() {
+    browserHistory.goBack()
+  }
   render() { 
     let overlayClass = 'vid-overlay'
     if(!this.state.active){
@@ -73,7 +85,7 @@ import { propTypes, defaultProps } from '../props'
               <source src={this.props.video.url} type={this.props.video.type}/>
             </video>
             <div className={overlayClass} >
-              <button className='backButton'>Back</button>
+              <button className='backButton' onClick={() => this.back()}>Back</button>
               <button onClick={() => this.play()}>Play/Pause</button>
             </div>
           </div>

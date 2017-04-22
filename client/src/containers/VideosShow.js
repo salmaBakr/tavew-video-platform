@@ -3,13 +3,16 @@ import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import '../index.css'
 import * as actions from '../actions/videos.js'
+import { propTypes, defaultProps } from '../props'
+
+
  let timeout = null
 
  class VideosShow extends Component {
   constructor(props){
     super(props)
     this.state = {
-      
+      playing: true
     }
   }
 
@@ -42,7 +45,20 @@ import * as actions from '../actions/videos.js'
     clearTimeout(timeout);
     this.goActive()
   }
-
+  play() {
+    const video = document.querySelector('video')
+    if(this.state.playing){
+      this.setState({
+        playing: false
+      })
+      video.pause()
+    }else{
+    this.setState({
+      playing: true
+    })
+    video.play()
+    }
+  }
   render() { 
     let overlayClass = 'vid-overlay'
     if(!this.state.active){
@@ -58,6 +74,7 @@ import * as actions from '../actions/videos.js'
             </video>
             <div className={overlayClass} >
               <button className='backButton'>Back</button>
+              <button onClick={() => this.play()}>Play/Pause</button>
             </div>
           </div>
        

@@ -86,7 +86,7 @@ import { browserHistory } from 'react-router'
             </video>
             <div className={overlayClass} >
               <button className='backButton' onClick={() => this.back()}>Back</button>
-              <button onClick={() => this.play()}>Play/Pause</button>
+              <button onClick={() => this.play()}>{this.state.playing ? 'Pause' : 'Play'}</button>
             </div>
           </div>
        

@@ -9,6 +9,8 @@ import { browserHistory } from 'react-router'
 
  let timeout = null
 
+
+
  class VideosShow extends Component {
   constructor(props){
     super(props)
@@ -71,23 +73,28 @@ import { browserHistory } from 'react-router'
   back() {
     browserHistory.push('/videos')
   }
+
+  duration(ev) {
+    const time = ev.target.duration
+    const minutes = parseInt(time / 60, 10);
+    const seconds = parseInt(time % 60,10);
+    const duration = minutes+':'+seconds
+    this.props.video.duration = duration
+  }
   render() { 
-    let overlayClass = 'vid-overlay'
-    if(!this.state.active){
-      overlayClass += ' hidden'
-    }
-    return (      
-  
-        <div key={this.props.video.id} className="vidShowContainer" onMouseMove={() => this.handleMouseMove()}>
-         
-          <div id='wrap-video' >
-            <video className="video" autoPlay controls >
-              <source src={this.props.video.url} type={this.props.video.type}/>
-            </video>
-            <div className={overlayClass} >
+    let overlay =  (<div className='vid-overlay'>
               <button className='backButton' onClick={() => this.back()}>Back</button>
               <button onClick={() => this.play()}>{this.state.playing ? 'Pause' : 'Play'}</button>
-            </div>
+              {this.props.video.duration}
+            </div>)
+ 
+    return (      
+        <div key={this.props.video.id} className="vidShowContainer" onMouseMove={() => this.handleMouseMove()}>
+          <div id='wrap-video' >
+            <video className="video" autoPlay controls onLoadedData={(e) => this.duration(e)}>
+              <source src={this.props.video.url} type={this.props.video.type}/>
+            </video>
+            {this.state.active && overlay}
           </div>
        
         </div>

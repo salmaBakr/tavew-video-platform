@@ -89,7 +89,7 @@ import { browserHistory } from 'react-router'
               <button className='backButton' onClick={() => this.back()}><i className="fa fa-angle-left fa-3x" aria-hidden="true"></i></button>
               <div className='controls'>
                 <button className='playButton' onClick={() => this.play()}><i className= {this.state.playing ? 'fa fa-pause' : 'fa fa-play'} aria-hidden="true"></i></button>
-                <progress id='progress-bar' min='0' max='100' value='0'>0% played</progress>  
+                <progress id='progress-bar' min='0' max='100' value='40'></progress>  
                 {this.props.video.duration}
               </div>
             </div>)

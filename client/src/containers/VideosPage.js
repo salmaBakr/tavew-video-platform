@@ -41,8 +41,8 @@ import * as actions from '../actions/videos.js'
           </Link>
            <p className='vidTitle'>{video.title}</p>
           <div>
-            <button className='like' id={video.id} value={video.likes} onClick={(event) => this.handleOnLikeClick(event)}>Like</button>
-            <button className='dislike' id={video.id} value={video.likes} onClick={(event) => this.handleOnLikeClick(event)}>Dislike</button>
+            <button className='like' id={video.id} value={video.likes} onClick={(event) => this.handleOnLikeClick(event)}><i className="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+            <button className='dislike' id={video.id} value={video.likes} onClick={(event) => this.handleOnLikeClick(event)}><i className="fa fa-thumbs-o-down" aria-hidden="true"></i></button>
             {video.likes}
           </div>
           <br/>

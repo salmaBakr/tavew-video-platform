@@ -58,11 +58,11 @@
  .backButton {
   display: flex;
   justify-content: flex-start;
-  background-color: black;  color: #e8f2f4;
+  background-color: black;  color: #e3e9f2;
   padding: 6px;
   border-radius: 4px;
-  font-size: 16px;
-  border: 1px solid #404142
+/*  font-size: 16px;*/
+  border: 0px solid #404142
  }
 
  .backButton:hover {

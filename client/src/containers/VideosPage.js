@@ -35,7 +35,7 @@ import * as actions from '../actions/videos.js'
       
         <div key={i} className="thumbVid">
           <Link to={"/videos/" + video.id}>
-            <video width="360" height="240" >
+            <video width="275" height="154" >
               <source src={video.url} type={video.type}/>
             </video>
           </Link>

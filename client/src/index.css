@@ -12,7 +12,7 @@ body {
 
 
 .thumbVid {
-  margin: 4px;
+  margin:0;
   margin-bottom: -20px;
 }
 
@@ -34,7 +34,7 @@ body {
 
 .vidTitle {
   position: relative;
-  bottom: 20px;
+ 
 }
 
 .form {

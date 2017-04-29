@@ -69,3 +69,14 @@
   opacity: .75;
  }
 
+ .playButton {
+  background-color: black;  color: #e3e9f2;
+  border: 0px
+ }
+.playButton:active, .playButton:focus, .playButton .active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+

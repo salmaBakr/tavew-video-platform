@@ -97,7 +97,7 @@ import { browserHistory } from 'react-router'
     return (      
         <div key={this.props.video.id} className="vidShowContainer" onMouseMove={() => this.handleMouseMove()}>
           <div id='wrap-video' >
-            <video className="video" autoPlay controls onLoadedData={(e) => this.duration(e)}>
+            <video className="video" autoPlay onLoadedData={(e) => this.duration(e)}>
               <source src={this.props.video.url} type={this.props.video.type}/>
             </video>
             {this.state.active && overlay}

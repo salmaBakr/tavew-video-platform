@@ -80,3 +80,10 @@
           box-shadow: none;
 }
 
+.backButton:active, .backButton:focus, .backButton .active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+

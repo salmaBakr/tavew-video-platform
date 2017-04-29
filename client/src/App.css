@@ -74,7 +74,9 @@
 
  .playButton {
   background-color: black;  color: #e3e9f2;
-  border: 0px
+  border: 0px;
+  margin-right: 5px;
+  margin-top: 8px;
  }
 .playButton:active, .playButton:focus, .playButton .active {
   background-image: none;
@@ -95,7 +97,7 @@ progress {
   display:inline-block;
   width:80%;  
   height:20px;
-  padding:15px 0 0 0;
+  padding:9px 0 0 0;
   margin:0;
   background:none;
   border: 0;
@@ -107,8 +109,8 @@ progress {
 }
 progress::-webkit-progress-bar {
   height:3px;
-  width:80%;
-  margin:0px 2px 0 10px;
+  width:90%;
+  margin:0px 10px 0 1px;
   background-color: #e3e9f2;
   border-radius: 15px;
   box-shadow:0px 0px 6px #777 inset;
@@ -118,7 +120,7 @@ progress::-webkit-progress-value {
   float:left;
   height:3px;
   margin:0;
-  background: #6e607c;
+  background: #00ffff;
   border-radius: 15px;
   box-shadow:0px 0px 6px #777 inset;
 }
@@ -126,7 +128,7 @@ progress::-webkit-progress-value {
 
 .controls {
   opacity: .85;
-  justify-content: center;
+  display: inline-block;
   align-self: flex-end;
   background-color: black;
   width: 80%;

@@ -86,7 +86,7 @@ import { browserHistory } from 'react-router'
 
   render() { 
     let overlay =  (<div className='vid-overlay'>
-              <button className='backButton' onClick={() => this.back()}><i className="fa fa-angle-left fa-3x" aria-hidden="true"></i></button>
+              <button className='backButton' onClick={() => this.back()}><i className="fa fa-angle-left fa-4x" aria-hidden="true"></i></button>
               <div className='controls'>
                 <button className='playButton' onClick={() => this.play()}><i className= {this.state.playing ? 'fa fa-pause fa-2x' : 'fa fa-play fa-2x'} aria-hidden="true"></i></button>
                 <progress id='progress-bar' min='0' max='100' value='40'></progress>  

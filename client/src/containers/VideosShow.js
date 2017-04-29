@@ -81,10 +81,12 @@ import { browserHistory } from 'react-router'
     const duration = minutes+':'+seconds
     this.props.video.duration = duration
   }
+
+
   render() { 
     let overlay =  (<div className='vid-overlay'>
               <button className='backButton' onClick={() => this.back()}>Back</button>
-              <button onClick={() => this.play()}>{this.state.playing ? 'Pause' : 'Play'}</button>
+              <button onClick={() => this.play()}><i className= {this.state.playing ? 'fa fa-pause' : 'fa fa-play'} aria-hidden="true"></i></button>
               {this.props.video.duration}
             </div>)
  
